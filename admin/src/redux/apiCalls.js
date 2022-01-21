@@ -1,5 +1,6 @@
 import { publicRequest, userRequest } from "../requestMethod";
 import { addProductFailure, addProductStart, addProductSuccess, deleteProductFailure, deleteProductStart, deleteProductSuccess, getProductFailure, getProductStart, getProductSuccess, updateProductFailure, updateProductStart, updateProductSuccess } from "./productRedux";
+import { getUserFailure, getUserStart, getUserSuccess } from "./userListRedux";
 import { loginFailure, loginStart, loginSuccess } from "./userRedux"
 
 
@@ -51,5 +52,16 @@ export const addProduct = async(dispatch,product)=>{
 
     } catch (error) {
         dispatch(addProductFailure());
+    }
+}
+
+export const getUsers = async(dispatch)=>{
+    dispatch(getUserStart());
+    try {
+        const res= await userRequest.get("/users");
+        dispatch(getUserSuccess(res.data));
+
+    } catch (error) {
+        dispatch(getUserFailure());
     }
 }

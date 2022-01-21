@@ -12,9 +12,10 @@ import {
   } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import productRedux from "./productRedux";
+import userListRedux from "./userListRedux";
 import userRedux from "./userRedux";
 
-const rootReducer = combineReducers({ user: userRedux,product:productRedux});
+const rootReducer = combineReducers({ user: userRedux,product:productRedux,userList:userListRedux});
 
 const persistConfig = {
     key: 'root',

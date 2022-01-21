@@ -20,7 +20,7 @@ function App() {
         {isAdmin && <Sidebar/>}
         <Routes>
         <Route exact path="/login" element={!isAdmin ? <Login/> : <Navigate replace to="/"/>}/>
-         { isAdmin &&
+         { isAdmin ?
          <>
           <Route exact path="/" element={<Home/>}/>
           <Route exact path="/users" element={<UserList/>}/>
@@ -29,7 +29,8 @@ function App() {
           <Route exact path="/products" element={<ProductList/>}/>
           <Route  path="/product/:id" element={<Product/>}/>
           <Route  path="/newProduct" element={<NewProduct/>}/>
-         </> 
+         </> :
+         <Route path="*" element={<Login/>}/>
         }
         </Routes>
       </div>

@@ -15,7 +15,7 @@ const Login = () => {
         // console.log(username,password );
         login(dispatch,{username,password});
 
-        !error && navigate("/");
+        !error && navigate("/")
     }
     return (
         <div className='loginContainer'>

@@ -67,6 +67,7 @@ useEffect(()=>{
         disableSelectionOnClick
         columns={columns}
         getRowId={(row) => row._id}
+        rowsPerPageOptions={[8]}
         pageSize={8}
         checkboxSelection
       />

@@ -1,9 +1,14 @@
 
 import { CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid, Publish } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import "./User.css";
 
 export default function User() {
+    const location = useLocation();
+    const userId = location.pathname.split("/")[2];
+    const users=useSelector(state=>state.userList.users);
+    const user=users?.find(u=>u._id===userId)
     return (
         <div className="user">
             <div className="userTitleContainer">
@@ -16,20 +21,19 @@ export default function User() {
                 <div className="userShow">
                     <div className="userShowTop">
                         <img
-                            src="https://randomuser.me/api/portraits/men/28.jpg"
+                            src={user.img}
                             alt=""
                             className="userShowImg"
                         />
                         <div className="userShowTopTitle">
-                            <span className="userShowUsername">John Doe</span>
-                            <span className="userShowUserTitle">Software Engineer</span>
+                            <span className="userShowUsername">{user.username}</span>
                         </div>
                     </div>
                     <div className="userShowBottom">
                         <span className="userShowTitle">Account Details</span>
                         <div className="userShowInfo">
                             <PermIdentity className="userShowIcon" />
-                            <span className="userShowInfoTitle">johndoe</span>
+                            <span className="userShowInfoTitle">{user.username}</span>
                         </div>
                         <div className="userShowInfo">
                             <CalendarToday className="userShowIcon" />
@@ -42,7 +46,7 @@ export default function User() {
                         </div>
                         <div className="userShowInfo">
                             <MailOutline className="userShowIcon" />
-                            <span className="userShowInfoTitle">johndoe@gmail.com</span>
+                            <span className="userShowInfoTitle">{user.email}</span>
                         </div>
                         <div className="userShowInfo">
                             <LocationSearching className="userShowIcon" />
@@ -58,7 +62,7 @@ export default function User() {
                                 <label>Username</label>
                                 <input
                                     type="text"
-                                    placeholder="johndoe"
+                                    placeholder={user.username}
                                     className="userUpdateInput"
                                 />
                             </div>
@@ -66,7 +70,7 @@ export default function User() {
                                 <label>Full Name</label>
                                 <input
                                     type="text"
-                                    placeholder="John Doe"
+                                    placeholder="Full Name"
                                     className="userUpdateInput"
                                 />
                             </div>
@@ -74,7 +78,7 @@ export default function User() {
                                 <label>Email</label>
                                 <input
                                     type="text"
-                                    placeholder="johndoe@gmail.com"
+                                    placeholder={user.email}
                                     className="userUpdateInput"
                                 />
                             </div>
@@ -99,7 +103,7 @@ export default function User() {
                             <div className="userUpdateUpload">
                                 <img
                                     className="userUpdateImg"
-                                    src="https://randomuser.me/api/portraits/men/28.jpg"
+                                    src={user.img}
                                     alt=""
                                 />
                                 <label htmlFor="file">
