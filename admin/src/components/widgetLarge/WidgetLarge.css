@@ -1,0 +1,54 @@
+.widgetLargeContainer{
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    padding:1.2rem;
+    flex: 2;
+}
+.widgetLargeTable{
+    width:100%;
+    border-spacing: 1rem;
+}
+.widgetLargeTh{
+    text-align: left;
+}
+
+.widgetLargeUserDetails{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+.widgetLargeUserDetails img{
+    width:3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: .9rem;
+}
+.widgetLargeDate{
+    color:rgb(158, 156, 156)
+}
+.widgetLargeAmount{
+    color:rgb(158, 156, 156)
+}
+
+.statusButton{
+    border-radius: 8px;
+    border:none;
+    padding:0.5rem;
+}
+
+.delivered{
+    background: rgb(211, 226, 211);
+    color:rgb(112, 145, 112);
+    font-weight:bold;
+}
+.pending{
+    background: rgb(197, 197, 197);
+    color:rgb(110, 110, 110);
+    font-weight:bold;
+}
+.declined{
+    background: rgb(241, 214, 214);
+    color:rgb(207, 145, 145);
+    font-weight:bold;
+}
